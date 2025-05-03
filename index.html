@@ -20,7 +20,7 @@
       color: #4CAF50;
     }
     .question {
-      margin-bottom: 20px;
+      margin-bottom: 30px;
     }
     .question-title {
       font-weight: bold;
@@ -59,6 +59,11 @@
       <label><input type="radio" name="q1" value="yes"> 是，我会很愿意去做。</label>
       <label><input type="radio" name="q1" value="no"> 不，我还是不想做。</label>
       <label><input type="radio" name="q1" value="maybe"> 不确定 / 看情况。</label>
+      <div style="margin-top: 8px; margin-left: 20px;">
+        <label><input type="checkbox" name="q1_detail" value="自由感"> 我在幻想中经常主动去做这件事。</label>
+        <label><input type="checkbox" name="q1_detail" value="被动感"> 我做这件事的想法源自别人说“这很好”。</label>
+        <label><input type="checkbox" name="q1_detail" value="对比"> 我有和别人比较之后才产生做它的冲动。</label>
+      </div>
     </div>
 
     <div class="question">
@@ -66,13 +71,23 @@
       <label><input type="radio" name="q2" value="regret"> 很懊悔 / 很失落。</label>
       <label><input type="radio" name="q2" value="meh"> 有点遗憾，但无所谓。</label>
       <label><input type="radio" name="q2" value="relief"> 松了口气，像是解脱。</label>
+      <div style="margin-top: 8px; margin-left: 20px;">
+        <label><input type="checkbox" name="q2_detail" value="羞愧"> 我有种羞愧感，像是辜负了什么。</label>
+        <label><input type="checkbox" name="q2_detail" value="松一口气"> 没做的那一刻我感到轻松了。</label>
+        <label><input type="checkbox" name="q2_detail" value="自责"> 我担心别人会因此失望。</label>
+      </div>
     </div>
 
     <div class="question">
-      <div class="question-title">3. 我想到要努力这件事时，感觉是：</div>
+      <div class="question-title">3. 想到要努力这件事时，感觉是：</div>
       <label><input type="radio" name="q3" value="pain"> 心里一沉，感到抗拒或痛苦。</label>
       <label><input type="radio" name="q3" value="confused"> 有动力但不知道从哪开始。</label>
       <label><input type="radio" name="q3" value="tired"> 很想做但身心都没力气。</label>
+      <div style="margin-top: 8px; margin-left: 20px;">
+        <label><input type="checkbox" name="q3_detail" value="抗拒"> 我一想到“必须要做”就整个人垮掉了。</label>
+        <label><input type="checkbox" name="q3_detail" value="茫然"> 想做，但没有明确目标或方向。</label>
+        <label><input type="checkbox" name="q3_detail" value="疲惫"> 我其他方面太疲惫，根本没能量来做它。</label>
+      </div>
     </div>
 
     <div class="question">
@@ -80,6 +95,11 @@
       <label><input type="radio" name="q4" value="yes"> 有，我做过一点点。</label>
       <label><input type="radio" name="q4" value="think"> 没有，但我经常想着。</label>
       <label><input type="radio" name="q4" value="no"> 没有，也没动过念头。</label>
+      <div style="margin-top: 8px; margin-left: 20px;">
+        <label><input type="checkbox" name="q4_detail" value="私下试过"> 我在没人知道的情况下偷偷尝试过。</label>
+        <label><input type="checkbox" name="q4_detail" value="光想不动"> 我脑海里演练过很多次，但一次也没做。</label>
+        <label><input type="checkbox" name="q4_detail" value="他人牵引"> 有人推我一把才开始动一下。</label>
+      </div>
     </div>
 
     <div class="question">
@@ -87,6 +107,11 @@
       <label><input type="radio" name="q5" value="yes"> 想。</label>
       <label><input type="radio" name="q5" value="no"> 不想。</label>
       <label><input type="radio" name="q5" value="unsure"> 不知道。</label>
+      <div style="margin-top: 8px; margin-left: 20px;">
+        <label><input type="checkbox" name="q5_detail" value="为自己"> 我做这件事完全是出于自己内在的满足。</label>
+        <label><input type="checkbox" name="q5_detail" value="被看见"> 我希望别人看到我做这件事的样子。</label>
+        <label><input type="checkbox" name="q5_detail" value="怕评价"> 如果没人看我反而不想做了。</label>
+      </div>
     </div>
 
     <button type="button" onclick="evaluateAnswers()">提交</button>
