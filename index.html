@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <title>我真的想做吗？</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f9f9f9;
+      color: #333;
+      max-width: 700px;
+      margin: 40px auto;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      background: white;
+    }
+    h1 {
+      text-align: center;
+      color: #4CAF50;
+    }
+    .question {
+      margin-bottom: 20px;
+    }
+    .question-title {
+      font-weight: bold;
+      margin-bottom: 8px;
+    }
+    label {
+      display: block;
+      margin-bottom: 5px;
+    }
+    button {
+      padding: 10px 20px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #45a049;
+    }
+    #result {
+      margin-top: 30px;
+      padding: 15px;
+      background-color: #e7f4ea;
+      border-left: 5px solid #4CAF50;
+      border-radius: 6px;
+    }
+  </style>
+</head>
+<body>
+  <h1>我真的想做吗？</h1>
+
+  <form id="desireForm">
+    <div class="question">
+      <div class="question-title">1. 如果没有任何限制，我还会去做这件事吗？</div>
+      <label><input type="radio" name="q1" value="yes"> 是，我会很愿意去做。</label>
+      <label><input type="radio" name="q1" value="no"> 不，我还是不想做。</label>
+      <label><input type="radio" name="q1" value="maybe"> 不确定 / 看情况。</label>
+    </div>
+
+    <div class="question">
+      <div class="question-title">2. 没做这件事，我感到：</div>
+      <label><input type="radio" name="q2" value="regret"> 很懊悔 / 很失落。</label>
+      <label><input type="radio" name="q2" value="meh"> 有点遗憾，但无所谓。</label>
+      <label><input type="radio" name="q2" value="relief"> 松了口气，像是解脱。</label>
+    </div>
+
+    <div class="question">
+      <div class="question-title">3. 我想到要努力这件事时，感觉是：</div>
+      <label><input type="radio" name="q3" value="pain"> 心里一沉，感到抗拒或痛苦。</label>
+      <label><input type="radio" name="q3" value="confused"> 有动力但不知道从哪开始。</label>
+      <label><input type="radio" name="q3" value="tired"> 很想做但身心都没力气。</label>
+    </div>
+
+    <div class="question">
+      <div class="question-title">4. 我有没有偷偷去做过一点点相关的尝试？</div>
+      <label><input type="radio" name="q4" value="yes"> 有，我做过一点点。</label>
+      <label><input type="radio" name="q4" value="think"> 没有，但我经常想着。</label>
+      <label><input type="radio" name="q4" value="no"> 没有，也没动过念头。</label>
+    </div>
+
+    <div class="question">
+      <div class="question-title">5. 如果别人不看、不评价我，我还想做这件事吗？</div>
+      <label><input type="radio" name="q5" value="yes"> 想。</label>
+      <label><input type="radio" name="q5" value="no"> 不想。</label>
+      <label><input type="radio" name="q5" value="unsure"> 不知道。</label>
+    </div>
+
+    <button type="button" onclick="evaluateAnswers()">提交</button>
+  </form>
+
+  <div id="result"></div>
+
+  <script>
+    function evaluateAnswers() {
+      const answers = {};
+      for (let i = 1; i <= 5; i++) {
+        const selected = document.querySelector(`input[name=q${i}]:checked`);
+        if (selected) answers[`q${i}`] = selected.value;
+      }
+
+      let score = 0;
+      if (answers.q1 === 'yes') score++;
+      if (answers.q2 === 'regret') score++;
+      if (answers.q3 === 'confused' || answers.q3 === 'tired') score++;
+      if (answers.q4 === 'yes' || answers.q4 === 'think') score++;
+      if (answers.q5 === 'yes') score++;
+
+      let resultText = '';
+      if (score >= 4) {
+        resultText = '✅ 你是真心想做这件事，但可能暂时能力或能量不足，不需要强迫，只要慢慢靠近就好。';
+      } else if (score <= 1) {
+        resultText = '🔄 你可能并不是真的想做这件事，只是出于社会期待或“应该做”的压力。你可以选择放下。';
+      } else if (answers.q3 === 'pain' || answers.q3 === 'tired') {
+        resultText = '🧊 你现在可能处于心理耗竭期，什么都不想做是正常的，休息和恢复更重要。';
+      } else {
+        resultText = '🤍 你对这件事的感觉比较复杂，可能需要更多时间来观察自己的状态和意愿。';
+      }
+
+      document.getElementById('result').innerText = resultText;
+    }
+  </script>
+</body>
+</html>
